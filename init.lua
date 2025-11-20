@@ -176,6 +176,10 @@ vim.keymap.set('n', '<leader>yp', function()
   print('Copied: ' .. path)
 end, { desc = '[Y]ank [P]ath to clipboard' })
 
+-- Buffer-cycling <Tab> / <S-Tab>
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
