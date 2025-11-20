@@ -169,6 +169,8 @@ vim.o.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+--[[ Olle's keymaps ]]
+
 -- Yank path to clipboard
 vim.keymap.set('n', '<leader>yp', function()
   local path = vim.fn.expand '%:p'
@@ -179,6 +181,11 @@ end, { desc = '[Y]ank [P]ath to clipboard' })
 -- Buffer-cycling <Tab> / <S-Tab>
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
+
+-- Reveal/toggle Neo-tree
+vim.keymap.set('n', '<leader>e', function()
+  require('neo-tree.command').execute { toggle = true, reveal = true }
+end, { desc = 'Toggle Neo-tree and reveal current file' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -988,7 +995,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
